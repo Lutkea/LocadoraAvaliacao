@@ -12,6 +12,7 @@ namespace Locadora_Filme{
     public int estoque;
             public List<Locacao> locacoes = new List<Locacao>();
 
+            //construtor filme
             public Filme(String paramId, String nome, String anoLancamento, String sinopse, double valor, int estoque){
                 this.id = paramId;
                 this.nome = nome;

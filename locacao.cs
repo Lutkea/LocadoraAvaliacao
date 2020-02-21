@@ -1,19 +1,18 @@
 using System;
 using System.Collections.Generic;
-using System.Globalization;
 using Locadora_Cliente;
 using Locadora_Filme;
 
 namespace Locacao_Filme{
     public class Locacao{
-        public String id;
+        public int id;
         public DateTime dataLocacao;
         public DateTime dataDevolucao;
         public Cliente cliente;
         public List<Filme> filmes = new List<Filme>();
 
     // Construtor de locação referente ao cliente
-        public Locacao(String id, Cliente cliente){
+        public Locacao(int id, Cliente cliente){
             this.id = id;
             this.cliente = cliente;
             this.dataLocacao = DateTime.Now;
