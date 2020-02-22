@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using Locacao_Filme;
+using Locadora_Locacao;
 using Locadora_Filme;
+using System.Linq;
 
 namespace Locadora_Cliente{
             
@@ -12,7 +13,7 @@ namespace Locadora_Cliente{
         public String cpf;
         public int diasDevolucao;
         public int filmesLoc;
-        public List<Locacao> locacoes = new List<Locacao>();
+        public List<Locacao> locacao = new List<Locacao>();
         
         // construtor cliente
         public Cliente(int id, String nome, String dtNasc, String cpf, int diasDevolucao){
@@ -26,14 +27,14 @@ namespace Locadora_Cliente{
         public int filmesLocados(){
             int filmes = 0;
 
-            foreach(Locacao locacao in this.locacoes){
-                foreach (Filme filme in locacao.filmes)
+            foreach(Locacao locacao in this.locacao){
+                foreach(Filme filme in locacao.filmes)
                 {
                     filmes++;
                 }
             }
-
-            return filmes;
+             return filmes;
+        }
 
             // Impressão Dados do CLiente
             public void mostrarCliente()
@@ -44,12 +45,12 @@ namespace Locadora_Cliente{
                 Console.WriteLine("DATA DE NASCIMENTO: " + dtNasc);
                 Console.WriteLine("CPF: " + cpf);
                 Console.WriteLine("DIAS PARA DEVOLUÇÃO: " + diasDevolucao);
-                Console.WriteLine("QUANTIDADE DE LOCAÇÕES: " + filmesLoc);
+                Console.WriteLine("QUANTIDADE DE LOCAÇÕES: " + locacao.Count);
             }
             // Adição de Locações
             public void adicionarLocacao(Locacao locacao)
             {
-                this.locacoes.Add(locacao);
+                this.locacao.Add(locacao);
             }
 
             // Lista de locações
@@ -57,7 +58,7 @@ namespace Locadora_Cliente{
             {
                 int qtd = 0;
 
-                foreach (Locacao locacao in this.locacoes)
+                foreach (Locacao locacao in this.locacao)
                 {
                     foreach (Filme filme in locacao.filmes)
                     {
@@ -68,6 +69,5 @@ namespace Locadora_Cliente{
                 return qtd;
         }
     }
-}
 }
 
